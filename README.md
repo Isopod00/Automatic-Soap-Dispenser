@@ -1,4 +1,4 @@
-# Automatic-Soap-Dispenser
+# Automatic Soap Dispenser
  By Anthony Brogni
  
 This project was designed to help with stopping the spread of COVID-19. By eliminating the need to press down on or touch a soap or hand sanitizer bottle, the chance of spreading germs and getting sick decreases.
