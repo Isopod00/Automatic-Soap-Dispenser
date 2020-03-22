@@ -3,7 +3,7 @@ By Anthony Brogni
  
 This project was designed to help with slowing the spread of COVID-19. By eliminating the need to press down on or touch a soap or hand sanitizer bottle, the chance of spreading germs and getting others sick decreases.
  
-## Parts Used in this Project: 
+## Electronics Used in this Project: 
 Arduino Pro Micro, Ultrasonic Sensor, Micro Servo Motor, Micro Slide Switch, 3.7v Lithium Ion Battery, Battery Recharging Circuit
 
 ## 3D Printed Parts Used in this Project: 
