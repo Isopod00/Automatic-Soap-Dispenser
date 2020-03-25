@@ -4,8 +4,8 @@
 #include <Servo.h>  //Import the servo library
 Servo myservo;      //Create a servo object to control the servo motor
 
-const int trigPin = A5; //Trigger Pin of the Ultrasonic Sensor
-const int echoPin = A4; //Echo Pin of the Ultrasonic Sensor
+const int trigPin = A2; //Trigger Pin of the Ultrasonic Sensor
+const int echoPin = A1; //Echo Pin of the Ultrasonic Sensor
 
 const int servoPin = 3; //The pin the servo motor is connected to 
 
