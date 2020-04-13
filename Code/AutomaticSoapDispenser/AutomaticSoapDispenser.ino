@@ -11,10 +11,12 @@ const int servoPin = 3; //The pin the servo motor is connected to
 
 const int maxDistance = 1; //How close (in inches) a hand should be to dispense soap
 
+int sawHand = 0;
+
 //Runs once at startup
 void setup() {
 
- Serial.begin(9600); 
+  Serial.begin(9600); 
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
@@ -25,13 +27,20 @@ void setup() {
 //Loops repeatedly
 void loop() {
   if (readDistance()> 0 && readDistance() <= maxDistance) {
-    dispense();
+    if (sawHand < 10) {
+      sawHand++;
+    }
+    else if (sawHand >= 10) {
+      dispense();
+      sawHand = 0;
+    }
+  }
+  else {
+    sawHand = 0;
   }
 
   Serial.print(readDistance());
   Serial.println(" inches");
-   
-  delay(100);
 }
 
 //Read the distance from the ultrasonic sensor (in inches)
