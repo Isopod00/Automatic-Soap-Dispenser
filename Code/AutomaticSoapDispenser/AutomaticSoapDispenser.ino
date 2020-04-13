@@ -9,10 +9,12 @@ const int echoPin = A1; //Echo Pin of the Ultrasonic Sensor
 
 const int servoPin = 3; //The pin the servo motor is connected to 
 
-const int maxDistance = 3; //How close (in inches) a hand should be to dispense soap
+const int maxDistance = 1; //How close (in inches) a hand should be to dispense soap
 
 //Runs once at startup
 void setup() {
+
+ Serial.begin(9600); 
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
@@ -25,6 +27,9 @@ void loop() {
   if (readDistance()> 0 && readDistance() <= maxDistance) {
     dispense();
   }
+
+  Serial.print(readDistance());
+  Serial.println(" inches");
    
   delay(100);
 }
