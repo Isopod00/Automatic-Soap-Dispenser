@@ -11,6 +11,11 @@ const int servoPin = 3; //The pin the servo motor is connected to
 
 const int maxDistance = 1; //How close (in inches) a hand should be to dispense soap
 
+const int startPos = 20; //Starting position of the servo motor
+const int dispensePos = 90; //Position the servo motor moves to while dispensing soap
+
+const int pumps = 1; Number of times to pump the soap bottle
+
 int sawHand = 0;
 
 //Runs once at startup
@@ -21,7 +26,7 @@ void setup() {
   pinMode(echoPin, INPUT);
 
   myservo.attach(servoPin, 700, 2400);  //Assign the servo motor on pin 3 to the servo object
-  myservo.write(20); //Move the servo to the starting position
+  myservo.write(startPos); //Move the servo to the starting position
 }
 
 //Loops repeatedly
@@ -31,7 +36,9 @@ void loop() {
       sawHand++;
     }
     else if (sawHand >= 10) {
-      dispense();
+      for (int x = 0; x < pumps; x++) {
+        dispense();
+      }
       sawHand = 0;
     }
   }
@@ -60,8 +67,8 @@ long readDistance() {
 //Dispense one pump of soap using the servo motor
 void dispense() {
   delay(100);
-  myservo.write(110);
+  myservo.write(dispensePos);
   delay(1000);
-  myservo.write(20);
-  delay(1000);
+  myservo.write(startPos);
+  delay(500);
 }
